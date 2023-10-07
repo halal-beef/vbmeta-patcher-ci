@@ -1,0 +1,29 @@
+name: Patcher CI
+
+on:
+  workflow_dispatch:
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Patch
+        run: |
+          echo Downloading Patcher...
+          cd blobs
+          sudo apt update
+          sudo apt install unzip -y
+          wget https://github.com/libxzr/vbmeta-disable-verification/releases/download/v1.0/vbmeta-disable-verification.zip
+          unzip "vbmeta-disable-verification.zip"
+          echo Patching...
+          for imgfile in $(ls | grep '\.img$'); do ./x86_64/vbmeta-disable-verification "$imgfile"; done
+          echo Done?
+
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v3.1.3
+        with:
+          name: Patched images
+          path: "blobs/*.img"
