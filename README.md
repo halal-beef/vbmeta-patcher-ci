@@ -15,4 +15,8 @@ Fork the repo
 Upload your vbmeta img files into the "blobs" folder
 
 
-Run the ci
+Run the CI
+
+## Credits
+
+[libxzr](https://github.com/libxzr) ```For making the tool used```
