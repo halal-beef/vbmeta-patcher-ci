@@ -19,6 +19,7 @@ jobs:
           wget https://github.com/libxzr/vbmeta-disable-verification/releases/download/v1.0/vbmeta-disable-verification.zip
           unzip "vbmeta-disable-verification.zip"
           echo Patching...
+          chmod +x ./x86_64/vbmeta-disable-verification
           for imgfile in $(ls | grep '\.img$'); do ./x86_64/vbmeta-disable-verification "$imgfile"; done
           echo Done?
 
