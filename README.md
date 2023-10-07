@@ -12,6 +12,7 @@ Using the CI service it'll be the equivalent of ```fastboot --disable-verity --d
 
 Fork the repo
 
-Upload any img files into the "blobs" folder
+Upload your vbmeta img files into the "blobs" folder
+
 
 Run the ci
